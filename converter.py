@@ -19,15 +19,6 @@ f = open ("spaceship.txt" , "r")
 tr={'.':'0' , '-':'1' , '#':'2' , 'A':'3' , 'G':'4'}
 
 
-if __name__=='__main__':
-    
-    if len(sys.argv) != 2:
-        print("Usage: {} <inputfilename>")
-        sys.exit()
-        
-    convert(sys.argv[1])
-            
-
 # <codecell>
 
 
@@ -63,4 +54,10 @@ convert("spaceship.txt")
 
 # <codecell>
 
+
+if __name__=='__main__':
+    if len(sys.argv) != 2:
+        print("Usage: {} <inputfilename>")
+        sys.exit()
+    convert(sys.argv[1])
 

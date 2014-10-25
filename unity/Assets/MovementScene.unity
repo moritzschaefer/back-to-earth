@@ -320,6 +320,7 @@ GameObject:
   - 58: {fileID: 1280448277}
   - 33: {fileID: 1280448276}
   - 23: {fileID: 1280448275}
+  - 50: {fileID: 1280448279}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -392,8 +393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10d2f09c8dceb44ba68a5788a4999ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
   movementSpeed: 20
   damage: 5
 --- !u!50 &1280448279
@@ -412,7 +411,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
->>>>>>> origin/player
 --- !u!1001 &1432791377
 Prefab:
   m_ObjectHideFlags: 0

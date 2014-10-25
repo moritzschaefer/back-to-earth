@@ -3,11 +3,6 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-<<<<<<< HEAD
-	// Use this for initialization
-	void Start () {
-	
-=======
 	private Rigidbody2D _rigidbody;
 
 	private Vector2 direction = Vector2.zero;
@@ -18,14 +13,9 @@ public class Projectile : MonoBehaviour {
 
 	void Awake() {
 		this._rigidbody = this.rigidbody2D;
->>>>>>> origin/player
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-<<<<<<< HEAD
-	
-=======
 		if(direction != Vector2.zero) {
 			this._rigidbody.velocity = this.direction * this.movementSpeed;
 		}
@@ -44,6 +34,5 @@ public class Projectile : MonoBehaviour {
 		} else {
 			this.direction = Vector2.zero;
 		}
->>>>>>> origin/player
 	}
 }

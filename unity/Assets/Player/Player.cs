@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour {
 
 	private Transform _transform;
@@ -75,6 +77,8 @@ public class Player : MonoBehaviour {
 	 */
 	private void Shoot() {
 		GameObject projectile = (GameObject) Object.Instantiate(this.projectilePrefab, this._transform.position, this._transform.rotation);
-		projectile.SendMessage("SetDirection", Vector2.right, SendMessageOptions.DontRequireReceiver);
+		float angle = Mathf.Deg2Rad * this._transform.eulerAngles.z + Random.Range(-spreadAngle, spreadAngle);
+		Vector2 direction = new Vector2(Mathf.Sin(-angle), Mathf.Cos(angle));
+		projectile.SendMessage("SetDirection", direction, SendMessageOptions.DontRequireReceiver);
 	}
 }

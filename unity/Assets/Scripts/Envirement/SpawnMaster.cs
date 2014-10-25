@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnMaster : Ground, IEnemyManager {
 
@@ -25,6 +26,7 @@ public class SpawnMaster : Ground, IEnemyManager {
 	private bool doNeedToSpawn = true;
 
 	public int aliveEnemyes;
+	public List<IHitable> enemys = new List<IHitable>();
 
 	private int activeSpawnNumber;
 
@@ -68,10 +70,16 @@ public class SpawnMaster : Ground, IEnemyManager {
 
 	public void EnemyDied(IHitable e) 
 	{
+		enemys.Remove (e);
 		aliveEnemyes--;
 		if (aliveEnemyes == 0) {
 			doNeedToSpawn = true;
 		}
+	}
+
+	public void addEnemy(IHitable enemy) 
+	{
+		enemys.Add (enemy);
 	}
 
 	public IHitable[] GetAllEnemys(){

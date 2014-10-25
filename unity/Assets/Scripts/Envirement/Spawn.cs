@@ -37,6 +37,7 @@ public class Spawn : Ground {
 			Quaternion q = current.transform.rotation;
 			q.eulerAngles = rot;
 			current.transform.rotation = q;
+			create();
 		} else {
 			current.renderer.enabled = false;
 		}
@@ -44,7 +45,14 @@ public class Spawn : Ground {
 
 	public void spawnUnits(int number) {
 
-		//enemy = new Enemy ();
-		unitsLeftToCreate = number - 1;
+		unitsLeftToCreate = number;
+	}
+
+	void create()
+	{
+		if (unitsLeftToCreate > 0) {
+						Enemy e = new Enemy (transform);
+						unitsLeftToCreate -= 1;
+				}
 	}
 }

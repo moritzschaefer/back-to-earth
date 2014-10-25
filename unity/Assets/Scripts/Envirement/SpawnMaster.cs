@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnMaster : Ground {
+public class SpawnMaster : Ground, IEnemyManager {
+
+	private static SpawnMaster me;
+
+	public static SpawnMaster Instance{
+		get{
+			if(me = null)
+				me = GameObject.Find("SpawnMaster").GetComponent<SpawnMaster>();
+			return me;
+		}
+	}
 
 	public Spawn[] spawns;
 
@@ -56,11 +66,16 @@ public class SpawnMaster : Ground {
 		}
 	}
 
-	public void enemyDied()
+	public void EnemyDied(IHitable e) 
 	{
 		aliveEnemyes--;
 		if (aliveEnemyes == 0) {
 			doNeedToSpawn = true;
 		}
 	}
+
+	public IHitable[] GetAllEnemys(){
+		return null;
+	}
+
 }

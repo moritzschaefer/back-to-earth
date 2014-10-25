@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour {
 
 	private Rigidbody2D _rigidbody;
@@ -11,7 +12,7 @@ public class Projectile : MonoBehaviour {
 	[SerializeField]
 	private float damage = 5;
 
-	void Start () {
+	void Awake() {
 		this._rigidbody = this.rigidbody2D;
 	}
 

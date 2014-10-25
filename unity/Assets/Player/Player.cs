@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
 	private float lastShotTime;
 	private bool hasFiredSinceTriggered;
 	[SerializeField]
+	private GameObject projectilePrefab;
+	[SerializeField]
 	private float spreadAngle = 0.0f;
 
 
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour {
 			}
 
 			if(canFire) {
-				Debug.Log("fired");
+				this.Shoot();
 				this.lastShotTime = Time.time;
 			}
 
@@ -64,5 +66,15 @@ public class Player : MonoBehaviour {
 		} else {
 			this.hasFiredSinceTriggered = false;
 		}
+	}
+
+
+	/**
+	 * Gets called to perform the shoot itself.
+	 * There is no checking if the player is able to shoot right now.
+	 */
+	private void Shoot() {
+		GameObject projectile = (GameObject) Object.Instantiate(this.projectilePrefab, this._transform.position, this._transform.rotation);
+		projectile.SendMessage("SetDirection", Vector2.right, SendMessageOptions.DontRequireReceiver);
 	}
 }

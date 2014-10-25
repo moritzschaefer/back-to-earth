@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour {
 	private Vector2 direction = Vector2.zero;
 	[SerializeField]
 	private float movementSpeed = 20;
+	[SerializeField]
+	private float damage = 5;
 
 	void Start () {
 		this._rigidbody = this.rigidbody2D;
@@ -21,7 +23,7 @@ public class Projectile : MonoBehaviour {
 
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		collision.collider.SendMessage("OnProjectileHit", SendMessageOptions.DontRequireReceiver);
+		collision.collider.SendMessage("ProjectileHit", this.damage, SendMessageOptions.DontRequireReceiver);
 		Object.Destroy(this.gameObject);
 	}
 

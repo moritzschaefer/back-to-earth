@@ -9,6 +9,13 @@ public class Player : MonoBehaviour {
 
 	[SerializeField]
 	private float movementSpeed = 5.0f;
+	
+	[SerializeField]
+	private float fireDelay = 0.2f;
+	private float lastShotTime;
+	private bool hasFiredSinceTriggered;
+	[SerializeField]
+	private float spreadAngle = 0.0f;
 
 
 	void Awake() {
@@ -34,5 +41,28 @@ public class Player : MonoBehaviour {
 
 		Vector2 movement = new Vector2(hor, vert) * this.movementSpeed;
 		this._rigidbody.velocity = movement;
+
+		if(Input.GetButton("Fire1")) {
+
+			bool canFire = false;
+			if(fireDelay == 0) {
+				if(!this.hasFiredSinceTriggered) {
+					canFire = true;
+				}
+			} else {
+				if(Time.time > this.lastShotTime + this.fireDelay) {
+					canFire = true;
+				}
+			}
+
+			if(canFire) {
+				Debug.Log("fired");
+				this.lastShotTime = Time.time;
+			}
+
+			this.hasFiredSinceTriggered = true;
+		} else {
+			this.hasFiredSinceTriggered = false;
+		}
 	}
 }

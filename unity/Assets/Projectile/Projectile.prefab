@@ -80,6 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10d2f09c8dceb44ba68a5788a4999ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  movementSpeed: 20
+  damage: 5
+>>>>>>> origin/player
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

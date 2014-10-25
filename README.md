@@ -5,5 +5,10 @@ Top down shooter on GameJam
 
 
 
-Google doc folder
+# Google Doc
 https://drive.google.com/folderview?id=0B-gO6e-xbi2eX0JOLVBqRUVQS00&usp=sharing
+
+# Getting you started with Unity 2D
+
+
+

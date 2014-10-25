@@ -154,6 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  fireDelay: .200000003
+  projectilePrefab: {fileID: 100000, guid: 26f2b6a46ffce4c4689a38f80deafc88, type: 2}
+  spreadAngle: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
